@@ -1,0 +1,19 @@
+.title {
+    font-size: 60px;
+    font-weight: bold;
+    color: orange;
+    background: radial-gradient(farthest-corner at 20px 20px,
+            rgb(211, 47, 26) 0%,
+            rgb(255, 153, 0) 100%,
+            yellow);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.hello-message {
+    position: relative;
+    top: 7px;
+    color: rgb(177, 38, 61);
+    font-weight: bold;
+}
