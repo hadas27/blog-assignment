@@ -17,16 +17,12 @@ export function BlogProvider({ children }) {
     const fetchPosts = async () => {
         try {
             const response = await fetch(`http://localhost:5000/posts`);
-            // console.log('all posts:', await response.json())
             setPosts(await response.json());
         } catch {
             alert("there was an error while fetching posts from the server");
         }
     }
 
-    // useEffect(() => {
-    //     fetchPosts();
-    // }, [pageSize]);
 
     const addPost = (post) => {
         const newPost = {
