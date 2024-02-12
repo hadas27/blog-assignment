@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PostList } from "../components/post-list";
 import './general.css'
+import '../components/header.css'
 
 export function Home() {
 

@@ -10,7 +10,7 @@ export function PostCard({ SinglePost }) {
     const dateOfPost = new Date().toLocaleDateString(
         "en-GB"
     );
-    let x = SinglePost.number
+    let x = SinglePost.id % 9
 
     return (
 
@@ -20,23 +20,24 @@ export function PostCard({ SinglePost }) {
                 <p className='date'> {dateOfPost}</p>
                 <h2 className='contentcard'>{SinglePost.title} </h2>
                 <p className='contentbodycard'>
-                    {SinglePost.body.slice(1, 100)}
+                    {SinglePost.description}
                 </p>
                 <div className='actions'>
 
-                    <Link to={`/posts/${SinglePost.id}`}> <button type='button' className='btn btn-success'>read more</button>  </Link>
+                    <Link to={`/posts/${SinglePost.id}`}> <p type='button' className='btn btn-success'>read more</p>  </Link>
                     <Link to={`/admin`}>
-                        <button type="button" className='btn btn-info' onClick={() => { selectedPostById(SinglePost.id) }}>edit ✏️</button>
+                        {user ? <p type="button" className='btn btn-info' onClick={() => { selectedPostById(SinglePost.id) }}>edit ✏️</p> : ''}
                     </Link>
                 </div>
             </div>
             <div className='image-remove'>
 
                 <div className='parentImage'>
-                </div> <img className='imagePost' src={`./images/${x}.jpg`} />
-                <div className='child'> {user ? <button className='remove' onClick={() => removePost(SinglePost.id)}> X </button> : ''}</div>
+                </div>
+                <img className='imagePost' src={`./images/${x}.jpg`} />
+                <div className='child'> {user ? <p className='remove' onClick={() => removePost(SinglePost.id)}> X </p> : ''}</div>
             </div>
-
+            {/* <div className='child'> {user ? <button className='remove' onClick={() => removePost(SinglePost.id)}> X </button> : ''}</div> */}
         </div >
 
 

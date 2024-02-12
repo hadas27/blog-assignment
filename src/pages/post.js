@@ -5,19 +5,26 @@ import { BlogContext } from "../providers/blog-provider";
 
 export function PostPage() {
     const { id } = useParams();
-    const { posts } = useContext(BlogContext)
-    const post = posts.find((element) => element.id === Number(id));
-    console.log(post)
-    const x = post.number.toString()
-    console.log(x)
+    // const { posts } = useContext(BlogContext)
+    // const post = posts.find((element) => element.id === Number(id));
+
+    const [post, setPost] = useState();
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/posts/${id}`)
+            .then(response => response.json())
+            .then(json => setPost(json))
+    }, []);
+
+
     return (
         <div className='container'>
             {post ? (
                 <div>
-                    <img src={`./images/${x}.jpg`} />
+                    <img src={`../images/${post.id % 9}.jpg`} />
                     <h1>{post.title}</h1>
                     <p>
-                        {post.body}
+                        {post.description}
                     </p>
                 </div>
             ) : (

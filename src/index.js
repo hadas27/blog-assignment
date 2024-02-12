@@ -13,6 +13,7 @@ import { PostPage } from './pages/post';
 import { BlogProvider } from './providers/blog-provider';
 import { AuthProvider } from './providers/auth-provider';
 import { Admin } from './pages/admin';
+import { UserAdmin } from './pages/useradmin';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />
+      },
+      {
+        path: "/useradmin",
+        element: <UserAdmin />
       }
     ],
   },

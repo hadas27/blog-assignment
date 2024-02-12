@@ -7,6 +7,5 @@ export function PostList({ feed }) {
         <div>
             {feed.map(item => <PostCard SinglePost={item} />)}
         </div>
-
     );
 }
